@@ -1,17 +1,6 @@
 {
   "name": "iceberg",
   "comment": "Dark blue color scheme for Vim and Neovim",
-  "use-theme-colors": false,
-  "foreground-color": "#c6c8d1",
-  "background-color": "#161821",
-  "use-highlight-color": true,
-  "highlight-foreground-color": "#c6c8d1",
-  "highlight-background-color": "#161821",
-  "use-cursor-color": true,
-  "cursor-foreground-color": "#161821",
-  "cursor-background-color": "#c6c8d1",
-  "use-bold-color": true,
-  "bold-color": "#c6c8d1",
   "palette": [
     "#161821",
     "#e27878",
