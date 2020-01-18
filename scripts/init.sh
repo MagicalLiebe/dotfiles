@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo "init"
+echo "初期設定を開始"
