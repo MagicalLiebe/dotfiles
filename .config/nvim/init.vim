@@ -3,6 +3,7 @@ let mapleader = "\<Space>"
 let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 
+set encoding=UTF-8
 set ignorecase
 set smartcase
 set wrapscan
@@ -16,6 +17,7 @@ set smarttab
 set shiftround
 set number
 set termguicolors
+set clipboard+=unnamedplus
 
 " dein
 if &compatible
@@ -42,10 +44,10 @@ if dein#check_install()
   call dein#install()
 endif
 
+call map(dein#check_clean(), "delete(v:val, 'rf')")
+
 colorscheme iceberg
 highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE
 highlight SpecialKey ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
-
-let g:lightline = {'colorscheme': 'iceberg'}

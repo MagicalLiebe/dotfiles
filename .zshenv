@@ -1,3 +1,5 @@
+export PATH="$HOME/bin:$PATH"
+
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH=$PATH:/usr/local/go/bin
