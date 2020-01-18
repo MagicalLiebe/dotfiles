@@ -28,5 +28,6 @@ echo "$DOTFILES_LOGO"
 git clone ${REPO_URL}
 
 cd dotfiles/scripts
+chmod +x init.sh link.sh
 ./init.sh
 ./link.sh
