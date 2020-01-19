@@ -31,3 +31,11 @@ hook_add = '''
     let g:airline#extensions#default#section_truncate_width = {}
     let g:airline#extensions#whitespace#enabled = 1
 '''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+rev = 'release'
+hook_add = '''
+    source ~/.config/nvim/plugins/coc.rc.vim
+'''

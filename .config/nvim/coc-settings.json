@@ -1,0 +1,34 @@
+{
+    "suggest.triggerAfterInsertEnter": true,
+    "suggest.noselect": false,
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.snippetIndicator": " ►",
+    "suggest.enablePreview": true,
+    "coc.preferences.hoverTarget": "float",
+    "coc.preferences.diagnostic.displayByAle": true,
+    "list.autoResize": true,
+    "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "args": ["--background-index"],
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["c", "cpp", "objc", "objcpp"]
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": ["dockerfile"],
+            "args": ["--stdio"]
+        },
+        "haskell": {
+            "command": "hie-wrapper",
+            "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
+            "filetypes": ["hs", "lhs", "haskell"],
+            "initializationOptions": {
+                "languageServerHaskell": {
+                    "hlintOn": true
+                }
+            }
+        }
+    },
+    "python.jediEnabled": false
+}
