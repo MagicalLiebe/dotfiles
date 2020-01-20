@@ -68,28 +68,35 @@ if [ -n "$LS_COLORS" ]; then
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
 
-### Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin installer's chunk
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdhar      ma/zinit)…%f"
+    command mkdir -p $HOME/.zinit
+    command git clone https://github.com/zdharma/zinit $HOME/.zinit/bin && \
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%F" || \
+    print -P "%F{160}▓▒░ The clone has failed.%F"
+fi
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit installer's chunk
 
 # Powerlevel10k 
-zplugin ice depth=1; zplugin light romkatv/powerlevel10k
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Two regular plugins loaded without tracking.
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zdharma/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
 
 # Load Git plugin from OMZ
-zplugin snippet OMZ::plugins/git/git.plugin.zsh
-zplugin cdclear -q
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit cdclear -q
 
 # Plugin history-search-multi-word loaded with tracking.
-zplugin load zdharma/history-search-multi-word
+zinit load zdharma/history-search-multi-word
 
 # Plugin history-substring-search loaded with tracking.
-zplugin load zsh-users/zsh-history-substring-search
+zinit load zsh-users/zsh-history-substring-search
 
 # ls after cd
 chpwd() {
