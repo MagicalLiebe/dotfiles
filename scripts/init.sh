@@ -2,20 +2,16 @@
 
 echo "初期設定を開始"
 
-# passwordの確認
-printf "password: "
-read password
-
 # 開発用フォルダの作成
 cd ~
 mkdir -p work
 
 # Go言語環境の構築
 wget https://dl.google.com/go/go1.13.6.linux-amd64.tar.gz
-echo "$password" | sudo -S tar -C /usr/local -xzf go1.13.6.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.13.6.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH = "$HOME/work"
-export PATH = "$GOPATH/bin:$PATH"
+export GOPATH="$HOME/work"
+export PATH="$GOPATH/bin:$PATH"
 rm go1.13.6.linux-amd64.tar.gz
 
 # ghgのインストール
@@ -27,15 +23,16 @@ ghg get motemen/ghq
 ghg get peco/peco
 ghg get knqyf263/pet
 
+# Neovimのインストール
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install neovim
+
 # 依存ライブラリをインストール
-echo "$password" | sudo -S apt install build-essential software-properties-common zsh silversearcher-ag zlib1g-dev libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev
+sudo apt install build-essential software-properties-common zsh silversearcher-ag zlib1g-dev libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev
 
 # Zinitのインストール
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-
-# Neovimのインストール
-echo "$password" | sudo -S add-apt-repository ppa:neovim-ppa/unstable
-echo "$password" | sudo -S apt install neovim
 
 # dein.vimのインストール
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
