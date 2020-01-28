@@ -5,6 +5,12 @@ repo = 'Shougo/dein.vim'
 repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
+repo = "airblade/vim-gitgutter"
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 
 [[plugins]]
@@ -37,6 +43,3 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 rev = 'release'
 hook_add = 'source ~/.config/nvim/plugins/coc.rc.vim'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
