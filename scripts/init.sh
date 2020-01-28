@@ -8,10 +8,11 @@ mkdir -p work
 
 # Go言語環境の構築
 wget https://dl.google.com/go/go1.13.6.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.13.6.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.13.6.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH = "$HOME/work"
 export PATH = "$GOPATH/bin:$PATH"
+rm go1.13.6.linux-amd64.tar.gz
 
 # ghgのインストール
 go get github.com/Songmu/ghg/cmd/ghg
@@ -35,10 +36,21 @@ sudo apt install neovim
 # dein.vimのインストール
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
 sh ~/installer.sh ~/.cache/dein
+rm ~/installer.sh
 
 # pyenv/virtualenvのインストール
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+eval "$(pyenv virtualenv-init -)"
+
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+    source "${VIRTUAL_ENV}/bin/activate"
+fi
 
 # Python2.7と3.7環境の構築
 CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.6
