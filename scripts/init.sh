@@ -15,7 +15,7 @@ export PATH="$GOPATH/bin:$PATH"
 rm go1.13.6.linux-amd64.tar.gz
 
 # ghgのインストール
-go get github.com/Songmu/ghg/cmd/ghg
+GO111MODULE=on go get github.com/Songmu/ghg/cmd/ghg
 export PATH="$(ghg bin):$PATH"
 
 # 便利なソフトのインストール
