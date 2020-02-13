@@ -33,6 +33,11 @@
             "command": "efm-langserver",
             "args": [],
             "filetypes": ["markdown"]
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "filetypes": ["go"]
         }
     },
     "python.jediEnabled": false
