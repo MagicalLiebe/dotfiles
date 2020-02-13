@@ -4,9 +4,11 @@ hook_add = '''
     " LinterとFixerの設定
     let g:ale_linters = {
         \ 'python': ['flake8'],
+        \ 'markdown': ['markdownlint'],
     \}
     let g:ale_fixers = {
         \ 'python': ['autopep8', 'black', 'isort'],
+        \ 'markdown': ['remark'],
     \}
     " 各ツールの実行オプションを変更してPythonパスを固定
     let g:ale_python_flake8_executable = g:python3_host_prog
@@ -35,3 +37,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'mauromorales/vim-remark'

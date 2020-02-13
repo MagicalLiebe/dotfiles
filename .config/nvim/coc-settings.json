@@ -28,6 +28,11 @@
                     "hlintOn": true
                 }
             }
+        },
+        "efm": {
+            "command": "efm-langserver",
+            "args": [],
+            "filetypes": ["markdown"]
         }
     },
     "python.jediEnabled": false
