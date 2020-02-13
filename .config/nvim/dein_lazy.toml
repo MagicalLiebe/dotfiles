@@ -4,9 +4,11 @@ hook_add = '''
     " LinterとFixerの設定
     let g:ale_linters = {
         \ 'python': ['flake8'],
+        \ 'go': ['gofmt'],
     \}
     let g:ale_fixers = {
         \ 'python': ['autopep8', 'black', 'isort'],
+        \ 'go': ['gofmt'],
     \}
     " 各ツールの実行オプションを変更してPythonパスを固定
     let g:ale_python_flake8_executable = g:python3_host_prog

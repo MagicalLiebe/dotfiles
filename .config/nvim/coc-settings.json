@@ -28,6 +28,11 @@
                     "hlintOn": true
                 }
             }
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "filetypes": ["go"]
         }
     },
     "python.jediEnabled": false
