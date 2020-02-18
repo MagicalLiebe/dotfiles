@@ -3,8 +3,8 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH="$HOME/work"
-export PATH="$GOPATH/bin:$PATH"
+export GOPATH=$HOME/work
+export PATH=$GOPATH/bin:$PATH
 export GO111MODULE=on
 
 export PATH="$(ghg bin):$PATH"

@@ -64,6 +64,7 @@ pyenv virtualenv 3.7.6 neovim3
 pyenv activate neovim3
 pip install --upgrade pip
 pip install pynvim
+pip install flake8 autopep8 black isort
 
 pyenv activate neovim2
 pip install --upgrade pip
