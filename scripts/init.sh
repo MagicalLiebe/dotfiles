@@ -70,3 +70,8 @@ pip install --upgrade pip
 pip install pynvim
 
 pyenv deactivate
+
+sudo curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+sudo apt update
+sudo apt install nodejs
+sudo npm install -g neovim
