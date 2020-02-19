@@ -3,3 +3,9 @@
 	email = reeve0930@gmail.com
 [ghq]
 	root = ~/work/src
+[merge]
+	conflictStyle = diff3
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
+	prompt = false
