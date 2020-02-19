@@ -56,8 +56,10 @@ fi
 # Python2.7と3.7環境の構築
 CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.6
 CONFIGURE_OPTS="--enable-shared" pyenv install 2.7.17
+pyenv global 3.7.6
 
 # Neovim用環境の構築
+# Python
 pyenv virtualenv 2.7.17 neovim2
 pyenv virtualenv 3.7.6 neovim3
 
@@ -72,7 +74,16 @@ pip install pynvim
 
 pyenv deactivate
 
+# Node.js
 sudo curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 sudo apt update
 sudo apt install nodejs
 sudo npm install -g neovim
+
+# Ruby
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+CONFIGURE_OPTS='--disable-install-rdoc' rbenv install 2.7.0
+rbenv global 2.7.0
+gem install neovim
