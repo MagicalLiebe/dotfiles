@@ -54,8 +54,8 @@ if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
 fi
 
 # Python2.7と3.7環境の構築
-CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.6
-CONFIGURE_OPTS="--enable-shared" pyenv install 2.7.17
+CONFIGURE_OPTS="--enable-shared" CFLAGS="-fPIC" pyenv install 3.7.6
+CONFIGURE_OPTS="--enable-shared" CFLAGS="-fPIC" pyenv install 2.7.17
 pyenv global 3.7.6
 
 # Neovim用環境の構築
