@@ -5,8 +5,10 @@ export LANG=ja_JP.UTF-8
 alias ls="ls --color"
 alias la='ls -a'
 alias ll='ls -l'
+alias lla='ls -la'
 alias sudo='sudo '
 alias vim='nvim'
+alias vimdiff='nvim -d'
 
 autoload -Uz promptinit
 promptinit

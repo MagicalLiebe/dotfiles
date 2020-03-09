@@ -3,6 +3,12 @@
 	email = reeve0930@gmail.com
 [ghq]
 	root = ~/work/src
+[merge]
+	conflictStyle = diff3
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
+	prompt = false
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
