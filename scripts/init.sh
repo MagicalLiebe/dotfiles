@@ -85,5 +85,6 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 CONFIGURE_OPTS='--disable-install-rdoc' rbenv install 2.7.0
+eval "$(rbenv init -)"
 rbenv global 2.7.0
 gem install neovim
