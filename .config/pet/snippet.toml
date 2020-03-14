@@ -1,0 +1,9 @@
+[[snippets]]
+  description = "show the ports which is listened"
+  command = "lsof -i"
+  output = ""
+
+[[snippets]]
+  description = "undos your last commit of git"
+  command = "git reset --soft HEAD^"
+  output = ""
