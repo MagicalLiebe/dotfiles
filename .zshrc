@@ -37,8 +37,9 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+# Use vi keybindings
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -105,15 +106,6 @@ chpwd() {
     ls
 }
 
-# search history
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco --prompt="history >"`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
-
 # cdr
 if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
     autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -123,6 +115,33 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-max 1000
     zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
 fi
+
+# cd ..
+function __zsh_up_cd() {
+    local BUF=${BUFFER}
+    zle kill-whole-line
+    
+    BUFFER="cd .."
+ 
+    zle .accept-line
+ 
+    if [ ! ${#BUF} -eq 0 ];then
+        zle -U ${BUF}
+    fi
+}
+zle -N __zsh_up_cd
+bindkey '^U' __zsh_up_cd
+
+# search history
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco --prompt="history >"`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+# peco cdr
 function peco-cdr () {
     local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | peco --prompt="cdr >" --query "$LBUFFER")"
     if [ -n "$selected_dir" ]; then
@@ -131,7 +150,7 @@ function peco-cdr () {
     fi
 }
 zle -N peco-cdr
-bindkey '^E' peco-cdr
+bindkey '^H' peco-cdr
 
 # search ghq repository
 function peco-ghq-look () {
@@ -147,7 +166,23 @@ function peco-ghq-look () {
     fi
 }
 zle -N peco-ghq-look
-bindkey '^G' peco-ghq-look
+bindkey '^J' peco-ghq-look
+
+# search pet snippet
+function pet-search () {
+    local snippet="$(pet search)"
+    if [-n "$snippet" ];then
+        BUFFER=$snippet
+    fi
+}
+zle -N pet-search
+bindkey '^P' pet-search
+
+# peco new command used most recently
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
