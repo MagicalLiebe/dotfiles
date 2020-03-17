@@ -12,6 +12,7 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+hook_add = 'source ~/.config/nvim/plugins/denite.vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'

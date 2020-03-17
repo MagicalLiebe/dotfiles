@@ -1,5 +1,4 @@
 let mapleader = "\<Space>"
-inoremap <silent> jj <ESC>
 
 let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
@@ -19,6 +18,29 @@ set shiftround
 set number
 set termguicolors
 set clipboard+=unnamedplus
+
+" keybind
+" split window
+nnoremap <silent> <S-j> :split<CR>
+nnoremap <silent> <S-l> :vsplit<CR>
+nnoremap <Bar> $:let pos = getpos(".")<CR>:join<CR>:call setpos('.', pos)<CR>
+" move window
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" move row
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+" move row fast
+nnoremap <C-n> 20j
+vnoremap <C-n> 20j
+nnoremap <C-p> 20k
+vnoremap <C-p> 20k
+" change to normal mode
+inoremap <silent> jj <ESC>
 
 " dein
 if &compatible
