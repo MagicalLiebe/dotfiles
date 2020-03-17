@@ -14,6 +14,9 @@ repo = 'tpope/vim-fugitive'
 repo = 'Shougo/denite.nvim'
 
 [[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]

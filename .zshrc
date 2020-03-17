@@ -2,7 +2,7 @@
 
 export LANG=ja_JP.UTF-8
 
-alias ls="ls --color"
+alias ls='ls --color'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
@@ -71,6 +71,32 @@ if [ -n "$LS_COLORS" ]; then
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
 
+# text object
+autoload -U select-bracketed
+zle -N select-bracketed
+for m in visual viopp; do
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $m $c select-bracketed
+  done
+done
+
+autoload -U select-quoted
+zle -N select-quoted
+for m in visual viopp; do
+  for c in {a,i}{\',\",\`}; do
+    bindkey -M $m $c select-quoted
+  done
+done
+
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N change-surround surround
+zle -N add-surround surround
+bindkey -a cs change-surround
+bindkey -a ds delete-surround
+bindkey -a ys add-surround
+bindkey -M visual S add-surround
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdhar      ma/zinit)…%f"
@@ -100,6 +126,9 @@ zinit load zdharma/history-search-multi-word
 
 # Plugin history-substring-search loaded with tracking.
 zinit load zsh-users/zsh-history-substring-search
+
+# Visual mode in Zsh Line Editer
+zinit load b4b4r07/zsh-vimode-visual
 
 # ls after cd
 chpwd() {
@@ -179,9 +208,9 @@ zle -N pet-search
 bindkey '^P' pet-search
 
 # peco new command used most recently
-function prev() {
-  PREV=$(fc -lrn | head -n 1)
-  sh -c "pet new `printf %q "$PREV"`"
+function pet-prev() {
+    PREV=$(fc -lrn | head -n 1)
+    sh -c "pet new `printf %q "$PREV"`"
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
