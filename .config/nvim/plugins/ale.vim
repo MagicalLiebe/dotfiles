@@ -19,7 +19,7 @@ let g:ale_python_isort_options = '-m isort'
 let g:ale_python_black_executable = g:python3_host_prog
 let g:ale_python_black_options = '-m black'
 " 表示設定
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
