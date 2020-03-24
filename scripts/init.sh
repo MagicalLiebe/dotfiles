@@ -83,8 +83,9 @@ sudo npm install -g neovim
 # Ruby
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 CONFIGURE_OPTS='--disable-install-rdoc' rbenv install 2.7.0
-eval "$(rbenv init -)"
 rbenv global 2.7.0
 gem install neovim
