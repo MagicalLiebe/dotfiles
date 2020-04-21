@@ -200,7 +200,7 @@ bindkey '^J' peco-ghq-look
 # search pet snippet
 function pet-search () {
     local snippet="$(pet search)"
-    if [-n "$snippet" ];then
+    if [ -n "$snippet" ];then
         BUFFER=$snippet
     fi
 }

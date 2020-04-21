@@ -7,3 +7,13 @@
   description = "undos your last commit of git"
   command = "git reset --soft HEAD^"
   output = ""
+
+[[snippets]]
+  description = "check the running on screen"
+  command = "screen -ls"
+  output = ""
+
+[[snippets]]
+  description = "git add all"
+  command = "git add -A"
+  output = ""
