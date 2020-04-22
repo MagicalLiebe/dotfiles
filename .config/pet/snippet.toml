@@ -17,3 +17,13 @@
   description = "git add all"
   command = "git add -A"
   output = ""
+
+[[snippets]]
+  description = "git commit"
+  command = "git commit -m \"\""
+  output = ""
+
+[[snippets]]
+  description = "git push"
+  command = "git push origin master"
+  output = ""
