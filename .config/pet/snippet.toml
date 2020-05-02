@@ -27,3 +27,8 @@
   description = "git push"
   command = "git push origin master"
   output = ""
+
+[[snippets]]
+  description = "restart network-manager"
+  command = "sudo systemctl restart network-manager.service"
+  output = ""
