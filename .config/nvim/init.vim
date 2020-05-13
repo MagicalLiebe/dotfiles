@@ -41,6 +41,11 @@ nnoremap <C-p> 20k
 vnoremap <C-p> 20k
 " change to normal mode
 inoremap <silent> jj <ESC>
+" save
+nnoremap <Leader>w :w<CR>
+" do not copy x&s
+nnoremap x "_x
+nnoremap s "_s
 
 " dein
 if &compatible
