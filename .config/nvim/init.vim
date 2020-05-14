@@ -39,6 +39,11 @@ nnoremap <C-n> 20j
 vnoremap <C-n> 20j
 nnoremap <C-p> 20k
 vnoremap <C-p> 20k
+" move line
+noremap <Leader>l $
+noremap <Leader>h ^
+nnoremap <Leader>/ *
+noremap <Leader>m %
 " change to normal mode
 inoremap <silent> jj <ESC>
 " save
@@ -46,6 +51,14 @@ nnoremap <Leader>w :w<CR>
 " do not copy x&s
 nnoremap x "_x
 nnoremap s "_s
+" move buffer
+nnoremap <silent> <C-h> :bprev<CR>
+nnoremap <silent> <C-l> :bnext<CR>
+" highlight
+nnoremap <ESC><ESC> :noh<CR>
+" vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " dein
 if &compatible
