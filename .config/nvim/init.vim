@@ -48,6 +48,8 @@ noremap <Leader>m %
 inoremap <silent> jj <ESC>
 " save
 nnoremap <Leader>w :w<CR>
+" close
+nnoremap <Leader>q :q<CR>
 " do not copy x&s
 nnoremap x "_x
 nnoremap s "_s
@@ -55,7 +57,7 @@ nnoremap s "_s
 nnoremap <silent> <C-h> :bprev<CR>
 nnoremap <silent> <C-l> :bnext<CR>
 " highlight
-nnoremap <ESC><ESC> :noh<CR>
+nnoremap <Leader>z :noh<CR>
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
