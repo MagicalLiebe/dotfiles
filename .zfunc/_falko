@@ -1,0 +1,138 @@
+#compdef _falko falko
+
+
+function _falko {
+  local -a commands
+
+  _arguments -C \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "check:foltia ANIME LOCKERの情報を確認"
+      "completion:シェルの補完スクリプトの生成"
+      "config:設定変更"
+      "copy:動画ファイルのコピー"
+      "help:Help about any command"
+      "reserve:TID指定による録画予約"
+      "slack:Slack botを起動"
+      "update:Update local DB"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  check)
+    _falko_check
+    ;;
+  completion)
+    _falko_completion
+    ;;
+  config)
+    _falko_config
+    ;;
+  copy)
+    _falko_copy
+    ;;
+  help)
+    _falko_help
+    ;;
+  reserve)
+    _falko_reserve
+    ;;
+  slack)
+    _falko_slack
+    ;;
+  update)
+    _falko_update
+    ;;
+  esac
+}
+
+function _falko_check {
+  _arguments \
+    '(-n --new-anime)'{-n,--new-anime}'[新アニメリストの確認]' \
+    '(-p --packet)'{-p,--packet}'[TSドロップの発生しているファイルを確認 (閾値を指定)]:' \
+    '(-r --reserve)'{-r,--reserve}'[録画予約一覧を確認 (表示する日数を指定)]:' \
+    '(-t --tid)'{-t,--tid}'[TIDの一覧を確認]'
+}
+
+
+function _falko_completion {
+  local -a commands
+
+  _arguments -C \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "bash:bash用補完スクリプトの生成"
+      "zsh:zsh用補完スクリプトの生成"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  bash)
+    _falko_completion_bash
+    ;;
+  zsh)
+    _falko_completion_zsh
+    ;;
+  esac
+}
+
+function _falko_completion_bash {
+  _arguments
+}
+
+function _falko_completion_zsh {
+  _arguments \
+    '(-h --help)'{-h,--help}'[help for zsh]'
+}
+
+function _falko_config {
+  _arguments \
+    '(-d --dest-copy)'{-d,--dest-copy}'[コピー先のディレクトリを設定]:' \
+    '(-r --drop-thresh)'{-r,--drop-thresh}'[コピー時のTSドロップ数の閾値設定]:' \
+    '(-e --encode-quality)'{-e,--encode-quality}'[予約時のエンコード設定]:' \
+    '(-t --file-type)'{-t,--file-type}'[コピーするファイルタイプを設定]:' \
+    '(-n --filename)'{-n,--filename}'[コピー時のファイル名フォーマットを設定]:' \
+    '(-i --foltia-ip)'{-i,--foltia-ip}'[foltia ANIME LOCKERのIPアドレスを設定]:' \
+    '(-s --foltia-path)'{-s,--foltia-path}'[foltia ANIME LOCKERをマウントしているディレクトリを設定]:' \
+    '(-x --mp2cm_cut)'{-x,--mp2cm_cut}'[予約時のMPEG2編集設定]:' \
+    '(-y --mp4cm_cut)'{-y,--mp4cm_cut}'[予約時のMP4編集設定]:' \
+    '(-c --slack_time)'{-c,--slack_time}'[Slack通知を送る時間の設定]:' \
+    '(-b --slack_token)'{-b,--slack_token}'[Slack botトークンの設定]:'
+}
+
+function _falko_copy {
+  _arguments \
+    '(-l --list)'{-l,--list}'[コピー予定のファイル一覧を表示]' \
+    '(-r --reset)'{-r,--reset}'[動画ファイルのコピー済みフラグを削除]'
+}
+
+function _falko_help {
+  _arguments
+}
+
+function _falko_reserve {
+  _arguments \
+    '(-l --list)'{-l,--list}'[録画予約している番組を表示]' \
+    '(-r --remove)'{-r,--remove}'[予約の取消]'
+}
+
+function _falko_slack {
+  _arguments
+}
+
+function _falko_update {
+  _arguments
+}
+
