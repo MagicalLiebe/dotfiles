@@ -32,3 +32,13 @@
   description = "restart network-manager"
   command = "sudo systemctl restart network-manager.service"
   output = ""
+
+[[snippets]]
+  description = "Change CapsLock and Ctrl"
+  command = "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:swapcaps']\""
+  output = ""
+
+[[snippets]]
+  description = "Reset CapsLock key settings"
+  command = "gsettings reset org.gnome.desktop.input-sources xkb-options"
+  output = ""
