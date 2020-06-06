@@ -5,7 +5,11 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Golang
-export PATH="/usr/local/go/bin:$PATH"
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+export GOENV_DISABLE_GOPATH=1
+eval "$(goenv init -)"
+
 export GOPATH="$HOME/work"
 export PATH="$GOPATH/bin:$PATH"
 export GO111MODULE=on

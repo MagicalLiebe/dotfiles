@@ -6,13 +6,19 @@ echo "初期設定を開始"
 cd ~
 mkdir -p work
 
-# Go言語環境の構築
-wget https://dl.google.com/go/go1.13.6.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.13.6.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
+# goenvのインストール
+git clone https://github.com/syndbg/goenv.git ~/.goenv
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+export GOENV_DISABLE_GOPATH=1
+eval "$(goenv init -)"
+
+goenv install 1.14.4
+goenv global 1.14.4
+goenv rehash
+
 export GOPATH="$HOME/work"
 export PATH="$GOPATH/bin:$PATH"
-rm go1.13.6.linux-amd64.tar.gz
 
 # ghgのインストール
 GO111MODULE=on go get github.com/Songmu/ghg/cmd/ghg
