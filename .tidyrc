@@ -1,0 +1,20 @@
+indent: auto
+indent-spaces: 4
+wrap: 72
+output-xml: no
+input-xml: no
+show-warnings: yes
+numeric-entities: yes
+quote-marks: yes
+quote-nbsp: yes
+quote-ampersand: no
+break-before-br: no
+uppercase-tags: no
+uppercase-attributes: no
+char-encoding: utf8
+doctype: "<!DOCTYPE html>"
+markup: yes
+new-blocklevel-tags: section,article,aside,hgroup,header,footer,nav,figure,figcaption,video,audio,canvas
+new-empty-tags: source,command,embed,keygen,track,wbr
+new-inline-tags: mark,progress,meter,time,ruby,rt,rp,bdi,bdo,summary,datalist,output
+quiet: yes

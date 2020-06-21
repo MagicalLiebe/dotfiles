@@ -114,6 +114,7 @@ function _falko_config {
 
 function _falko_copy {
   _arguments \
+    '(-i --ignoreDrop)'{-i,--ignoreDrop}'[TSドロップを無視してコピー]' \
     '(-l --list)'{-l,--list}'[コピー予定のファイル一覧を表示]' \
     '(-r --reset)'{-r,--reset}'[動画ファイルのコピー済みフラグを削除]'
 }

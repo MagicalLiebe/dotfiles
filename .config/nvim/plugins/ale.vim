@@ -3,11 +3,17 @@ let g:ale_linters = {
     \ 'python': ['flake8'],
     \ 'markdown': ['markdownlint'],
     \ 'go': ['golint'],
+    \ 'html': ['tidy'],
+    \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint'],
 \}
 let g:ale_fixers = {
     \ 'python': ['autopep8', 'black', 'isort'],
     \ 'markdown': ['remark'],
     \ 'go': ['goimports'],
+    \ 'html': ['tidy'],
+    \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint'],
 \}
 " 各ツールの実行オプションを変更してPythonパスを固定
 let g:ale_python_flake8_executable = g:python3_host_prog

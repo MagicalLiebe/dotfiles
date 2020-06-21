@@ -9,6 +9,7 @@
     "coc.preferences.diagnostic.displayByAle": true,
     "list.autoResize": true,
     "python.jediEnabled": false,
+    "html.autoClosingTags": true,
     "languageserver": {
         "golang": {
             "command": "gopls",

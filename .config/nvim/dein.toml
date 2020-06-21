@@ -40,3 +40,19 @@ hook_add = 'source ~/.config/nvim/plugins/coc.rc.vim'
 
 [[plugins]]
 repo = 'terryma/vim-expand-region'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'previm/previm'
+hook_add = 'source ~/.config/nvim/plugins/previm.vim'
+
+[[plugins]]
+repo = 'mattn/vim-maketable'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'

@@ -18,6 +18,7 @@ set shiftround
 set number
 set termguicolors
 set clipboard+=unnamedplus
+set helplang=ja
 
 " keybind
 " split window
