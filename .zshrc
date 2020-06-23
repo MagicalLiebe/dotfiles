@@ -9,6 +9,10 @@ alias lla='ls -la'
 alias sudo='sudo '
 alias vim='nvim'
 alias vimdiff='nvim -d'
+if type trash-put &> /dev/null
+then
+    alias rm=trash-put
+fi
 
 autoload -Uz promptinit
 promptinit
