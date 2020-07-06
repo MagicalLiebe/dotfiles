@@ -32,6 +32,10 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# Perl
+export PATH="$HOME/.plenv/bin:$PATH"
+eval "$(plenv init -)"
+
 # tools
 # ghg
 export PATH="$(ghg bin):$PATH"
