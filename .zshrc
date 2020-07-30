@@ -6,7 +6,7 @@ alias ls='ls --color'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
-alias sudo='sudo '
+alias sudo='sudo -E '
 alias vim='nvim'
 alias vimdiff='nvim -d'
 if type trash-put &> /dev/null
