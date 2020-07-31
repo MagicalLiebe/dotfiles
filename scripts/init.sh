@@ -2,11 +2,7 @@
 
 echo "初期設定を開始"
 
-# 開発用フォルダの作成
 cd ~
-mkdir -p work
-mkdir -p .config
-mkdir -p bin
 
 # goenvのインストール
 git clone https://github.com/syndbg/goenv.git ~/.goenv
