@@ -27,9 +27,5 @@ echo "$DOTFILES_LOGO"
 # git clone
 git clone ${REPO_URL}
 
-mkdir -p ~/.config
-mkdir -p ~/bin
-mkdir -p ~/work
-
 cd dotfiles
 make install
