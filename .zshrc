@@ -13,6 +13,11 @@ if type trash-put &> /dev/null
 then
     alias rm=trash-put
 fi
+if type code-insiders &> /dev/null
+then
+    alias code=code-insiders
+fi
+
 
 autoload -Uz promptinit
 promptinit
@@ -189,12 +194,13 @@ bindkey '^H' peco-cdr
 function peco-ghq-look () {
     local ghq_roots="$(git config --path --get-all ghq.root)"
     local selected_dir=$(ghq list --full-path | \
+        sed "s#/mnt/u/work/src#$ghq_roots#" | \
         xargs -I{} ls -dl --time-style=+%s {}/.git | sed 's/.*\([0-9]\{10\}\)/\1/' | sort -nr | \
         sed "s,.*\(${ghq_roots/$'\n'/\|}\)/,," | \
         sed 's/\/.git//' | \
         peco --prompt="cd-ghq >" --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd $(ghq list --full-path | grep --color=never -E "/$selected_dir$")"
+        BUFFER="cd $(ghq list --full-path | sed "s#/mnt/u/work/src#$ghq_roots#" | grep --color=never -E "/$selected_dir$")"
         zle accept-line
     fi
 }
