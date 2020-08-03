@@ -9,9 +9,9 @@ alias lla='ls -la'
 alias sudo='sudo -E '
 alias vim='nvim'
 alias vimdiff='nvim -d'
-if type trash-put &> /dev/null
+if type gomi &> /dev/null
 then
-    alias rm=trash-put
+    alias rm=gomi
 fi
 if type code-insiders &> /dev/null
 then
