@@ -192,17 +192,12 @@ bindkey '^H' peco-cdr
 
 # search ghq repository
 function peco-ghq-look () {
-    local ghq_roots="$(git config --path --get-all ghq.root)"
-    local selected_dir=$(ghq list --full-path | \
-        sed "s#/mnt/u/work/src#$ghq_roots#" | \
-        xargs -I{} ls -dl --time-style=+%s {}/.git | sed 's/.*\([0-9]\{10\}\)/\1/' | sort -nr | \
-        sed "s,.*\(${ghq_roots/$'\n'/\|}\)/,," | \
-        sed 's/\/.git//' | \
-        peco --prompt="cd-ghq >" --query "$LBUFFER")
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd $(ghq list --full-path | sed "s#/mnt/u/work/src#$ghq_roots#" | grep --color=never -E "/$selected_dir$")"
+        BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
+    zle clear-screen
 }
 zle -N peco-ghq-look
 bindkey '^J' peco-ghq-look
@@ -229,3 +224,6 @@ function pet-prev() {
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
+
+# opam configuration
+test -r /home/reeve0930/.opam/opam-init/init.zsh && . /home/reeve0930/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

@@ -1,6 +1,8 @@
 [user]
 	name = reeve0930
 	email = reeve0930@gmail.com
+[alias]
+    get = !ghq get
 [ghq]
 	root = ~/work/src
 [merge]
