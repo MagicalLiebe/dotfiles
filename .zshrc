@@ -227,3 +227,5 @@ fi
 
 # opam configuration
 test -r /home/reeve0930/.opam/opam-init/init.zsh && . /home/reeve0930/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
