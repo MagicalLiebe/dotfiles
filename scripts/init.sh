@@ -10,6 +10,10 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 yes | anyenv install --init
 eval "$(anyenv init -)"
 
+# anyenv-updateのインストール
+mkdir -p $(anyenv root)/plugins
+git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+
 # goenvのインストール
 anyenv install goenv
 goenv install 1.16.0
