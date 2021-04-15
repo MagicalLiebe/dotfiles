@@ -1,5 +1,5 @@
 {
-	"oj-path": "/home/reeve0930/.pyenv/shims/oj",
+	"oj-path": "/home/reeve0930/work/src/github.com/reeve0930/AtCoderPython/.venv/bin/oj",
 	"default-contest-dirname-format": "{ContestID}",
 	"default-task-dirname-format": "{tasklabel}",
 	"default-test-dirname-format": "test",

@@ -7,8 +7,11 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
 alias sudo='sudo -E '
-alias vim='nvim'
-alias vimdiff='nvim -d'
+if type nvim &> /dev/null
+then
+    alias vim='nvim'
+    alias vimdiff='nvim -d'
+fi
 if type gomi &> /dev/null
 then
     alias rm=gomi
@@ -17,7 +20,6 @@ if type code-insiders &> /dev/null
 then
     alias code=code-insiders
 fi
-
 
 autoload -Uz promptinit
 promptinit
@@ -119,7 +121,7 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit installer's chunk
 
-# Powerlevel10k 
+# Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Two regular plugins loaded without tracking.
@@ -158,11 +160,11 @@ fi
 function __zsh_up_cd() {
     local BUF=${BUFFER}
     zle kill-whole-line
-    
+
     BUFFER="cd .."
- 
+
     zle .accept-line
- 
+
     if [ ! ${#BUF} -eq 0 ];then
         zle -U ${BUF}
     fi
