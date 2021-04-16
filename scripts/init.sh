@@ -41,7 +41,7 @@ sudo apt update
 sudo apt install neovim
 
 # 依存ライブラリをインストール
-sudo apt install build-essential software-properties-common zsh silversearcher-ag zlib1g-dev libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev
+sudo apt install build-essential software-properties-common zsh silversearcher-ag zlib1g-dev libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev libgl1-mesa-dev
 
 # Zinitのインストール
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
