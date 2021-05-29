@@ -10,6 +10,10 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 yes | anyenv install --init
 eval "$(anyenv init -)"
 
+# anyenv-updateのインストール
+mkdir -p $(anyenv root)/plugins
+git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+
 # goenvのインストール
 anyenv install goenv
 goenv install 1.16.0
@@ -37,7 +41,7 @@ sudo apt update
 sudo apt install neovim
 
 # 依存ライブラリをインストール
-sudo apt install build-essential software-properties-common zsh silversearcher-ag zlib1g-dev libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev
+sudo apt install build-essential software-properties-common zsh silversearcher-ag zlib1g-dev libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev libgl1-mesa-dev
 
 # Zinitのインストール
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
@@ -47,8 +51,12 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 sh ~/installer.sh ~/.cache/dein
 rm ~/installer.sh
 
+source ~/.zshenv
+source ~/.zshrc
+
 # pyenv/virtualenvのインストール
 anyenv install pyenv
+exec $SHELL -l
 CONFIGURE_OPTS="--enable-shared" CFLAGS="-fPIC" pyenv install 3.9.2
 CONFIGURE_OPTS="--enable-shared" CFLAGS="-fPIC" pyenv install 2.7.18
 pyenv global 3.9.2
@@ -56,14 +64,17 @@ git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/py
 
 # Poetryのインストール
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+poetry config virtualenvs.in-project true
 
 # rbenvのインストール
 anyenv install rbenv
+exec $SHELL -l
 rbenv install 2.7.2
 rbenv global 2.7.2
 
 # plenvのインストール
 anyenv install plenv
+exec $SHELL -l
 plenv install 5.32.1
 plenv global 5.32.1
 plenv install-cpanm
