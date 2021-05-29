@@ -42,3 +42,8 @@
   description = "Reset CapsLock key settings"
   command = "gsettings reset org.gnome.desktop.input-sources xkb-options"
   output = ""
+
+[[snippets]]
+  description = "Mount foltia Anime Locker"
+  command = "sudo mount -t cifs -o \"vers=2.0\" //foltia/public /mnt/foltia/"
+  output = ""
