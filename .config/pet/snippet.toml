@@ -47,3 +47,8 @@
   description = "Mount foltia Anime Locker"
   command = "sudo mount -t cifs -o \"vers=2.0\" //foltia/public /mnt/foltia/"
   output = ""
+
+[[snippets]]
+  description = "Upgrade npm module interactively"
+  command = "yarn upgrade-interactive --latest"
+  output = ""
